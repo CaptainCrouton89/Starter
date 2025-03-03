@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { api } from "@/lib/api";
 import { useState } from "react";
 
 export default function ProtectedApiButton() {
@@ -13,20 +14,10 @@ export default function ProtectedApiButton() {
       setLoading(true);
       setError(null);
 
-      const res = await fetch("/api/protected", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const res = await api.get("/api/protected");
+      console.log(res);
 
-      if (!res.ok) {
-        const errorData = await res.json();
-        throw new Error(errorData.error || "Failed to call protected API");
-      }
-
-      const data = await res.json();
-      setResponse(JSON.stringify(data, null, 2));
+      setResponse(JSON.stringify(res.data, null, 2));
     } catch (err) {
       setError(
         err instanceof Error ? err.message : "An unknown error occurred"

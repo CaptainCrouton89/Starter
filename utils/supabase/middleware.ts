@@ -1,5 +1,5 @@
 import { createServerClient } from "@supabase/ssr";
-import { type NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 export const updateSession = async (request: NextRequest) => {
   // This `try/catch` block is only here for the interactive tutorial.
@@ -45,11 +45,10 @@ export const updateSession = async (request: NextRequest) => {
         request.nextUrl.pathname.startsWith("/api/protected")) &&
       user.error
     ) {
-      return NextResponse.redirect(new URL("/sign-in", request.url));
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
     if (request.nextUrl.pathname === "/" && !user.error) {
-      return NextResponse.redirect(new URL("/protected", request.url));
     }
 
     return response;
