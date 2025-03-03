@@ -1,3 +1,4 @@
+import ProtectedApiButton from "@/components/ProtectedApiButton";
 import SubscribeComponent from "@/components/subscribe";
 import { createClient } from "@/utils/supabase/server";
 import { InfoIcon } from "lucide-react";
@@ -29,6 +30,12 @@ export default async function ProtectedPage() {
           {JSON.stringify(user, null, 2)}
         </pre>
       </div>
+
+      <div className="flex flex-col gap-2 items-start">
+        <h2 className="font-bold text-2xl mb-4">Protected API Access</h2>
+        <ProtectedApiButton />
+      </div>
+
       <div>
         <h2 className="font-bold text-2xl mb-4">Next steps</h2>
         <SubscribeComponent

@@ -1,3 +1,4 @@
+import ProtectedApiButton from "@/components/ProtectedApiButton";
 import SubscribeComponent from "@/components/subscribe";
 
 export default async function Home() {
@@ -10,6 +11,7 @@ export default async function Home() {
           price="10"
           description="Subscribe to the newsletter"
         />
+        <ProtectedApiButton />
       </main>
     </>
   );
