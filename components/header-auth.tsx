@@ -1,16 +1,26 @@
+"use client";
+
 import { signOutAction } from "@/app/actions";
 import { hasEnvVars } from "@/utils/supabase/check-env-vars";
-import { createClient } from "@/utils/supabase/server";
+import { createClient } from "@/utils/supabase/client";
+import { User } from "@supabase/supabase-js";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { ThemeToggleWrapper } from "./theme-toggle-wrapper";
 import { Button } from "./ui/button";
 
-export default async function AuthButton() {
-  const supabase = await createClient();
+export default function AuthButton() {
+  const supabase = createClient();
+  const [user, setUser] = useState<User | null>(null);
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  useEffect(() => {
+    const fetchUser = async () => {
+      const { data } = await supabase.auth.getUser();
+      setUser(data.user);
+    };
+
+    fetchUser();
+  }, [supabase]);
 
   if (!hasEnvVars) {
     return (
