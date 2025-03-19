@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { api } from "@/lib/api";
+import { api } from "@/lib/axios";
 import { useState } from "react";
 
 export default function ProtectedApiButton() {
