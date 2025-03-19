@@ -33,9 +33,7 @@ export default async function Login(props: { searchParams: Promise<Message> }) {
           placeholder="Your password"
           required
         />
-        <Button variant="default" type="submit">
-          Sign in
-        </Button>
+        <Button type="submit">Sign in</Button>
         <FormMessage message={searchParams} />
       </div>
     </form>

@@ -27,10 +27,10 @@ importers:
         specifier: ^5.7.0
         version: 5.10.0
       '@supabase/ssr':
-        specifier: latest
+        specifier: ^0.6.1
         version: 0.6.1(@supabase/supabase-js@2.49.1)
       '@supabase/supabase-js':
-        specifier: latest
+        specifier: ^2.49.1
         version: 2.49.1
       autoprefixer:
         specifier: 10.4.20
