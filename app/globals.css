@@ -75,40 +75,6 @@
 
 @layer components {
   .container {
-    @apply w-full mx-auto px-4;
-    max-width: 100%;
-  }
-
-  /* Small screens (default) */
-  .container {
-    max-width: 100%;
-  }
-
-  /* Medium screens (sm) */
-  @media (min-width: 640px) {
-    .container {
-      max-width: 640px;
-    }
-  }
-
-  /* Large screens (md) */
-  @media (min-width: 768px) {
-    .container {
-      max-width: 768px;
-    }
-  }
-
-  /* XL screens (lg) */
-  @media (min-width: 1024px) {
-    .container {
-      max-width: 1024px;
-    }
-  }
-
-  /* 2XL screens (xl) */
-  @media (min-width: 1280px) {
-    .container {
-      max-width: 1280px;
-    }
+    @apply w-full mx-auto px-4 max-w-full sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl;
   }
 }
