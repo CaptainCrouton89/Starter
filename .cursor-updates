@@ -2,3 +2,6 @@
 
 - Installed sonner toast notification component using shadcn 
 - Installed avatar component using shadcn 
+- Created a dedicated Navbar component and refactored layout to use it 
+- Created a dedicated Footer component that stays at the bottom of the page 
+- Added responsive container class for consistent content width across screen sizes 
